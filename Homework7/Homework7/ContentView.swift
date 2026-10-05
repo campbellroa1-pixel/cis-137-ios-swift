@@ -1,3 +1,6 @@
+//Assignment: Homework7
+//Name: Antonio Campbell-Rodriguez
+//October 5th, 2026
 import SwiftUI
 
 // Custom Alignment Guide
