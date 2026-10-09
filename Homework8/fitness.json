@@ -1,0 +1,28 @@
+[
+    {
+        "id": "bench-press",
+        "name": "Bench Press",
+        "description": "Builds chest, shoulder, and triceps strength."
+    },
+    {
+        "id": "squats",
+        "name": "Squats",
+        "description": "Strengthens the quadriceps and glutes."
+    },
+    {
+        "id": "deadlifts",
+        "name": "Deadlifts",
+        "description": "Trains the back, glutes, hamstrings, and grip."
+    },
+    {
+        "id": "shoulder-press",
+        "name": "Shoulder Press",
+        "description": "Builds shoulder and upper-body strength."
+    },
+    {
+        "id": "pull-ups",
+        "name": "Pull-Ups",
+        "description": "Strengthens the back and biceps."
+    }
+]
+
