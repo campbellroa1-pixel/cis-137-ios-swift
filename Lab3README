@@ -1,0 +1,57 @@
+# Flower Match – CIS-137 Lab 3 README
+
+## Project Description
+
+Flower Match is a memory matching game created using Swift and SwiftUI in Xcode. The goal of the game is to find all 12 matching pairs of flowers by flipping over two cards at a time.
+
+The game uses the Model-View-ViewModel (MVVM) architecture to organize the code and separate the game data, game logic, and user interface.
+
+Features
+
+- 24 cards containing 12 matching flower pairs.
+- Randomly shuffled cards each time the game restarts.
+- Interactive card flipping.
+- 3D rotation animation when cards are flipped.
+- Matching cards stay face up.
+- Nonmatching cards flip back over.
+- Restart button to begin a new game.
+- Victory message when all 12 pairs are matched.
+
+MVVM Architecture
+
+This project uses three main parts of the MVVM architecture.
+
+### 1. Model – FlowerCard.swift
+
+The Model stores the information for each flower card.
+
+It includes:
+- A unique ID for each card.
+- The flower number.
+- Whether the card is face up.
+- Whether the card has been matched.
+
+### 2. ViewModel – FlowerGameViewModel.swift
+
+The ViewModel controls the game's logic and communicates between the Model and View.
+
+It is responsible for:
+- Creating the flower cards.
+- Shuffling the cards.
+- Handling card selections.
+- Checking whether two cards match.
+- Tracking matched pairs and moves.
+- Restarting the game.
+
+### 3. View – ContentView.swift
+
+The View displays the game's user interface.
+
+It includes:
+- The Flower Match title.
+- The flower card grid.
+- Individual card designs.
+- The restart button.
+- The victory message.
+
+VIDEO PRESENTATION:
