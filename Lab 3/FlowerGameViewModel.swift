@@ -1,14 +1,22 @@
+
 import Foundation
 import SwiftUI
 
 // VIEWMODEL: Controls the memory game.
+
 class FlowerGameViewModel: ObservableObject {
 
     @Published var cards: [FlowerCard] = []
-
     @Published var moves = 0
-
     @Published var matchedPairs = 0
+
+    // Tracks the progress of the game.
+    @Published private(set) var progress = 0.0
+
+    // Accessor for the progress variable.
+    var gameProgress: Double {
+        return progress
+    }
 
     private var selectedCards: [Int] = []
 
@@ -20,17 +28,13 @@ class FlowerGameViewModel: ObservableObject {
     func restartGame() {
 
         cards = []
-
         moves = 0
-
         matchedPairs = 0
-
+        progress = 0.0
         selectedCards = []
 
         for number in 1...12 {
-
             cards.append(FlowerCard(flowerNumber: number))
-
             cards.append(FlowerCard(flowerNumber: number))
         }
 
@@ -67,9 +71,7 @@ class FlowerGameViewModel: ObservableObject {
 
         // Check for a match after two cards are selected.
         if selectedCards.count == 2 {
-
             moves += 1
-
             checkForMatch()
         }
     }
@@ -78,20 +80,20 @@ class FlowerGameViewModel: ObservableObject {
     private func checkForMatch() {
 
         let firstIndex = selectedCards[0]
-
         let secondIndex = selectedCards[1]
 
         if cards[firstIndex].flowerNumber ==
             cards[secondIndex].flowerNumber {
 
             withAnimation(.easeInOut(duration: 0.3)) {
-
                 cards[firstIndex].isMatched = true
-
                 cards[secondIndex].isMatched = true
             }
 
             matchedPairs += 1
+
+            // Update game progress.
+            progress = Double(matchedPairs) / 12.0
 
             selectedCards = []
 
@@ -101,9 +103,7 @@ class FlowerGameViewModel: ObservableObject {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
 
                 withAnimation(.easeInOut(duration: 0.3)) {
-
                     self.cards[firstIndex].isFaceUp = false
-
                     self.cards[secondIndex].isFaceUp = false
                 }
 
